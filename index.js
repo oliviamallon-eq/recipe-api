@@ -3,8 +3,11 @@ const app = express()
 const posts = require('./posts')
 const cors = require('cors')
 
-app.use(cors())
 app.options('/posts', cors())
+app.get('/posts', (req,res) => {
+    res.json(posts)
+})
+
 app.get('/',(req,res) => {
     res.send('Api is running.')
 })
