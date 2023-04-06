@@ -3,8 +3,8 @@ const app = express()
 const posts = require('./posts')
 const cors = require('cors')
 
-app.options('/posts', cors())
-app.get('/posts', (req,res) => {
+app.use(cors())
+app.get('/posts', function (req, res, next) {
     res.json(posts)
 })
 
